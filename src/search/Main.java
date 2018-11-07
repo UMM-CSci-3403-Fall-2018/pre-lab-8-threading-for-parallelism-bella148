@@ -38,13 +38,14 @@ public class Main {
     private static boolean searchArray(int target, ArrayList<Integer> list) throws InterruptedException {
         // You can replace ThreadedSearch with LinearSearch to see this work with
         // the given linear search code.
-        Searcher<Integer> searcher = new LinearSearch<>();
+        //Searcher<Integer> searcher = new LinearSearch<>();
 
         // This specifies 4 threads for the tests. It would be a good idea to play
         // with this and see how that changes things. Keep in mind that your number
         // of threads *may* need to evenly divide the length of the list being
         // searched (ARRAY_SIZE in this case).
         // Searcher<Integer> searcher = new ThreadedSearch<>(4);
+        Searcher<Integer> searcher = new ThreadedSearch<>(8); //i7-6700K @ 4.00 GHz with 8 cores gave me a time of 116ms on the first and 28ms on the second.
 
         return searcher.search(target, list);
     }
